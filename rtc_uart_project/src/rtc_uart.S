@@ -42,7 +42,6 @@ __isr_vector:
 
 	.size	__isr_vector, . - __isr_vector
 	
-	//.section .main_program
 main:
 	.text
 	.thumb

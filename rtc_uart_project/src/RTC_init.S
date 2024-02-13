@@ -16,7 +16,6 @@
 	.type RTC_init, %function
 RTC_init:
 
-	@PUSH {lr}
 	
 	@codnigure clock for PWR block
 	LDR r1, =RCC_BASE
@@ -149,7 +148,6 @@ await_ALARAWF:
 	ORR r2, #RTC_CR_ALRAIE
 	STR r2, [r1, #RTC_CR]
 		
-	@POP {lr}
 	BX lr
 
 	.pool

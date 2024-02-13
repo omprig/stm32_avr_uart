@@ -26,13 +26,6 @@ SECTIONS
 
 	__StackTop = ORIGIN(SRAM) + LENGTH(SRAM)- 4;
 
-	/*
-	__StackLimit = __StackTop - SIZEOF(.stack_dummy);
-	PROVIDE(__stack = __StackTop);
 
-	.stack_dummy (NOLOAD) :
-	{
-		*(.stack*)
-	} > SRAM */
 	
 }

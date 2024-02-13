@@ -11,8 +11,6 @@
 	.globl GPIOD_init
 	.type GPIOD_init, %function
 GPIOD_init:
-	@save return address on the stack
-	@PUSH {lr}
 	
 	@ enable clocking GPIOD
 	LDR r1, =RCC_BASE
@@ -43,9 +41,6 @@ GPIOD_init:
 
 		
 
-	@renew return address from the stack
-	@POP {r0}
-	@MOV lr, r0
 	BX lr
 
 	.pool

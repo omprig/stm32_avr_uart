@@ -9,7 +9,6 @@
 volatile unsigned char time_str[TIME_NUMBERS] = {0x30};
 enum Time_is_ready{READY = 1, NOT_READY = 0};
 volatile enum Time_is_ready update_time = NOT_READY;
-//volatile bool set_connection = false;
 
 ISR(USART1_RX_vect)
 {
@@ -31,13 +30,6 @@ ISR(USART1_RX_vect)
 			update_time = READY;
 		}	
 	}
-	//else
-	/*{
-		if(uart_data == STM32_CODE)
-		{
-			set_connection = true;
-		}
-	}*/
 	
 }
 
@@ -49,15 +41,7 @@ int main(void)
 	
 	//enable global interrupt
 	sei();
-	/*
-	while(!set_connection)
-	{
-		while(!(UCSR0A & (1 << UDRE1)))
-		{
-			UDR1 = AVR_CODE;
-		}
-	}
-	*/
+
 	//ready for receiving data
 	send_CTS();
 	

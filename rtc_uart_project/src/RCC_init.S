@@ -11,8 +11,6 @@
 	.type RCC_init, %function
 RCC_init:
 	
-	@save return address on the stack
-	@PUSH {lr}
 	
        	@ configure RCC
        	@ turn on HSE
@@ -52,9 +50,6 @@ wait_for_HSE_as_SYSCLK:
         ORR r2, #RCC_CFGR_PPRE2_DIV2
         STR r2, [r1, #RCC_CFGR]
 	
-	@renew retrun address from the stack
-	@POP {r0}
-	@MOV lr, r0
 	BX lr
 	
 	.pool
